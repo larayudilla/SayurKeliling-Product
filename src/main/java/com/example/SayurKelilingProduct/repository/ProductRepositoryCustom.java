@@ -3,8 +3,7 @@ package com.example.SayurKelilingProduct.repository;
 import com.example.SayurKelilingProduct.model.Product;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.transaction.annotation.Transactional;
-import java.time.LocalDate;
+
 import java.util.List;
 
 public interface ProductRepositoryCustom {

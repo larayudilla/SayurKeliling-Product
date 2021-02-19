@@ -23,7 +23,7 @@ public class ProductController {
     KategoriRepository kategoriRepository;
 
     @GetMapping("/")
-    public List<Product> listUser() {
+    public List<Product> daftarPelanggan() {
         return productRepository.findAll();
     }
 
@@ -52,7 +52,7 @@ public class ProductController {
     }
 
     @PutMapping("/{idProduct}")
-    public Product updateUser(@PathVariable(value = "idProduct") Long idProduct, @RequestBody ProductForm productForm) {
+    public Product updatePelanggan(@PathVariable(value = "idProduct") Long idProduct, @RequestBody ProductForm productForm) {
         Product productData = productRepository.getByIDs(idProduct);
         if(productData ==null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -66,7 +66,7 @@ public class ProductController {
         }
     }
     @DeleteMapping("/{idProduct}")
-    public ResponseEntity<?> deleteNote(@PathVariable(value = "idProduct") Long idProduct) {
+    public ResponseEntity<?> delete(@PathVariable(value = "idProduct") Long idProduct) {
         Product product = productRepository.getByIDs(idProduct);
         if(product ==null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);

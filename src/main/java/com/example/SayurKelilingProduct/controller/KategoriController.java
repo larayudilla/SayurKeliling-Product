@@ -18,7 +18,7 @@ public class KategoriController {
     KategoriRepository kategoriRepository;
 
     @GetMapping("/")
-    public List<Kategori> listUser() {
+    public List<Kategori> daftarPelanggan() {
         return kategoriRepository.findAll();
     }
 
@@ -39,7 +39,7 @@ public class KategoriController {
         }
     }
     @PutMapping("/{idKategori}")
-    public Kategori updateUser(@PathVariable(value = "idKategori") Long idKategori, @RequestBody KategoriForm kategoriForm) {
+    public Kategori updatePelanggan(@PathVariable(value = "idKategori") Long idKategori, @RequestBody KategoriForm kategoriForm) {
         Kategori kategoriData = kategoriRepository.findById(idKategori).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         kategoriData.setKategori(kategoriForm.getKategori());
         return kategoriRepository.save(kategoriData);
@@ -47,7 +47,7 @@ public class KategoriController {
 
 
     @DeleteMapping("/{idKategori}")
-    public ResponseEntity<?> deleteNote(@PathVariable(value = "idKategori") Long idKategori) {
+    public ResponseEntity<?> delete(@PathVariable(value = "idKategori") Long idKategori) {
         Kategori kategori = kategoriRepository.findCategoryId(idKategori);
         if(kategori ==null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
